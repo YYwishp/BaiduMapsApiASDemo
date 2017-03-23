@@ -1,0 +1,20 @@
+密钥库类型: JKS
+密钥库提供方: SUN
+
+您的密钥库包含 1 个条目
+
+别名: baidu
+创建日期: 2017-3-23
+条目类型: PrivateKeyEntry
+证书链长度: 1
+证书[1]:
+所有者: CN=baidu, OU=baidu, O=baidu, L=baidu, ST=baidu, C=baidu
+发布者: CN=baidu, OU=baidu, O=baidu, L=baidu, ST=baidu, C=baidu
+序列号: 1df9975e
+有效期开始日期: Thu Mar 23 11:16:51 CST 2017, 截止日期: Mon Mar 17 11:16:51 CST 2042
+证书指纹:
+         MD5: 57:A0:5E:D7:FE:2C:E7:8E:60:3A:0C:1D:85:0A:DC:EB
+         SHA1: 3B:C7:0F:C6:E4:A7:D4:62:27:FA:76:41:8A:26:31:74:C0:24:E7:5D
+         SHA256: 24:B6:5F:C9:23:E6:15:C5:46:10:B3:47:E3:1C:F2:A4:89:36:DE:02:72:88:0E:D4:0C:AF:B7:D8:CE:13:69:F1
+         签名算法名称: SHA256withRSA
+         版本: 3
