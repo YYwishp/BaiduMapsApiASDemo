@@ -44,12 +44,12 @@ public class MarkerClusterDemo extends Activity implements OnMapLoadedCallback {
         setContentView(R.layout.activity_marker_cluster_demo);
 
         mMapView = (MapView) findViewById(R.id.bmapView);
-        ms = new MapStatus.Builder().target(new LatLng(39.914935, 116.403119)).zoom(8).build();
+        ms = new MapStatus.Builder().target(new LatLng(39.914935, 116.403119)).zoom(9).build();
         mBaiduMap = mMapView.getMap();
         //设置地图加载完成回调
         mBaiduMap.setOnMapLoadedCallback(this);
         //以动画方式更新地图状态
-        mBaiduMap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(ms));
+       // mBaiduMap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(ms));
         // 定义点聚合管理类ClusterManager
         mClusterManager = new ClusterManager<MyItem>(this, mBaiduMap);
         // 添加Marker点
@@ -76,7 +76,7 @@ public class MarkerClusterDemo extends Activity implements OnMapLoadedCallback {
         mBaiduMap.setOnMapStatusChangeListener(mClusterManager);
 
         // 设置maker点击时的响应
-        mBaiduMap.setOnMarkerClickListener(mClusterManager);
+       mBaiduMap.setOnMarkerClickListener(mClusterManager);
 
         mClusterManager.setOnClusterClickListener(new ClusterManager.OnClusterClickListener<MyItem>() {
             @Override
@@ -122,21 +122,21 @@ public class MarkerClusterDemo extends Activity implements OnMapLoadedCallback {
     public void addMarkers() {
         // 添加Marker点
         LatLng llA = new LatLng(34.963175, 116.400244);
-        LatLng llB = new LatLng(22.942821, 130.369199);
-        LatLng llC = new LatLng(39.939723, 116.425541);
-        LatLng llD = new LatLng(55.906965, 120.401394);
-        LatLng llE = new LatLng(39.956965, 116.331394);
-        LatLng llF = new LatLng(60.886965, 150.441394);
-        LatLng llG = new LatLng(10.996965, 116.411394);
+        LatLng llB = new LatLng(34.942821, 116.369199);
+        LatLng llC = new LatLng(34.939723, 116.425541);
+        LatLng llD = new LatLng(34.906965, 116.401394);
+        LatLng llE = new LatLng(34.956965, 116.331394);
+        LatLng llF = new LatLng(34.886965, 120.441394);
+        LatLng llG = new LatLng(34.996965, 116.411394);
 
         List<MyItem> items = new ArrayList<MyItem>();
         items.add(new MyItem(llA));
         items.add(new MyItem(llB));
-       /* items.add(new MyItem(llC));
+        items.add(new MyItem(llC));
         items.add(new MyItem(llD));
         items.add(new MyItem(llE));
         items.add(new MyItem(llF));
-        items.add(new MyItem(llG));*/
+        items.add(new MyItem(llG));
 
         mClusterManager.addItems(items);
         LatLngBounds.Builder builder = new LatLngBounds.Builder();
@@ -147,7 +147,8 @@ public class MarkerClusterDemo extends Activity implements OnMapLoadedCallback {
         LatLngBounds latLngBounds = builder.build();
 
 //        mBaiduMap.animateMapStatus(MapStatusUpdateFactory.newLatLngBounds(latLngBounds));
-        //mBaiduMap.animateMapStatus(MapStatusUpdateFactory.newLatLngZoom(latLngBounds.getCenter(),5));
+        mBaiduMap.animateMapStatus(MapStatusUpdateFactory.newLatLngZoom(latLngBounds.getCenter(),6));
+        //mBaiduMap.setMapStatus(MapStatusUpdateFactory.newLatLngBounds(latLngBounds));
 
     }
 
@@ -177,7 +178,7 @@ public class MarkerClusterDemo extends Activity implements OnMapLoadedCallback {
     public void onMapLoaded() {
         // TODO Auto-generated method stub
         ms = new MapStatus.Builder().zoom(9).build();
-
+      //  mBaiduMap.setOnMapStatusChangeListener(mClusterManager);
 //        mBaiduMap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(ms));
     }
 
