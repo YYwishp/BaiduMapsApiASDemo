@@ -152,8 +152,7 @@ public class LocationDemo extends Activity {
         public void onConnectHotSpotMessage(String s, int i) {
         }
 
-        public void onReceivePoi(BDLocation poiLocation) {
-        }
+
     }
 
     @Override
