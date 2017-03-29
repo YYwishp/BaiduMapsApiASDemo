@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 
+import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.BaiduMapOptions;
 import com.baidu.mapapi.map.MapStatus;
 import com.baidu.mapapi.map.SupportMapFragment;
@@ -30,9 +31,12 @@ public class MapFragmentDemo extends FragmentActivity {
             builder.target(p);
         }
         builder.overlook(-20).zoom(15);
-        BaiduMapOptions bo = new BaiduMapOptions().mapStatus(builder.build())
-                .compassEnabled(false).zoomControlsEnabled(false);
+        BaiduMapOptions bo = new BaiduMapOptions()
+                .mapStatus(builder.build())
+                .compassEnabled(false)
+                .zoomControlsEnabled(false);
         map = SupportMapFragment.newInstance(bo);
+
         FragmentManager manager = getSupportFragmentManager();
         manager.beginTransaction().add(R.id.map, map, "map_fragment").commit();
     }
@@ -50,6 +54,7 @@ public class MapFragmentDemo extends FragmentActivity {
     @Override
     public void onStart() {
         super.onStart();
+        BaiduMap baiduMap = map.getBaiduMap();
     }
 
     @Override

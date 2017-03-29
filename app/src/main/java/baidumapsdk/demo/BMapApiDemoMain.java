@@ -115,10 +115,8 @@ public class BMapApiDemoMain extends Activity {
     private static final DemoInfo[] DEMOS = {
             new DemoInfo(R.string.demo_title_basemap,
                     R.string.demo_desc_basemap, BaseMapDemo.class),
-            new DemoInfo(R.string.demo_title_map_fragment,
-                    R.string.demo_desc_map_fragment, MapFragmentDemo.class),
-            new DemoInfo(R.string.demo_title_layers, R.string.demo_desc_layers,
-                    LayersDemo.class),
+            new DemoInfo(R.string.demo_title_map_fragment, R.string.demo_desc_map_fragment, MapFragmentDemo.class),
+            new DemoInfo(R.string.demo_title_layers, R.string.demo_desc_layers, LayersDemo.class),
             new DemoInfo(R.string.demo_title_multimap,
                     R.string.demo_desc_multimap, MultiMapViewDemo.class),
             new DemoInfo(R.string.demo_title_control,
@@ -187,8 +185,7 @@ public class BMapApiDemoMain extends Activity {
 
         @Override
         public View getView(int index, View convertView, ViewGroup parent) {
-            convertView = View.inflate(BMapApiDemoMain.this,
-                    R.layout.demo_info_item, null);
+            convertView = View.inflate(BMapApiDemoMain.this, R.layout.demo_info_item, null);
             TextView title = (TextView) convertView.findViewById(R.id.title);
             TextView desc = (TextView) convertView.findViewById(R.id.desc);
             title.setText(DEMOS[index].title);

@@ -86,4 +86,6 @@ dependencies {
     compile 'com.android.support:appcompat-v7:22.2.1'
     compile files('libs/BaiduLBS_Android.jar')
     compile files('libs/httpmime-4.1.2.jar')
+    // compile 'com.facebook.fresco:fresco:0.14.1'
+    compile 'com.facebook.fresco:fresco:1.2.0'
 }

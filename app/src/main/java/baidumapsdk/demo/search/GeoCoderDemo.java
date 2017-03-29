@@ -1,7 +1,9 @@
 package baidumapsdk.demo.search;
 
 import android.app.Activity;
+import android.nfc.Tag;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -53,11 +55,9 @@ public class GeoCoderDemo extends Activity implements OnGetGeoCoderResultListene
         if (v.getId() == R.id.reversegeocode) {
             EditText lat = (EditText) findViewById(R.id.lat);
             EditText lon = (EditText) findViewById(R.id.lon);
-            LatLng ptCenter = new LatLng((Float.valueOf(lat.getText()
-                    .toString())), (Float.valueOf(lon.getText().toString())));
+            LatLng ptCenter = new LatLng((Float.valueOf(lat.getText().toString())), (Float.valueOf(lon.getText().toString())));
             // 反Geo搜索
-            mSearch.reverseGeoCode(new ReverseGeoCodeOption()
-                    .location(ptCenter));
+            mSearch.reverseGeoCode(new ReverseGeoCodeOption().location(ptCenter));
         } else if (v.getId() == R.id.geocode) {
             EditText editCity = (EditText) findViewById(R.id.city);
             EditText editGeoCodeKey = (EditText) findViewById(R.id.geocodekey);
@@ -107,18 +107,19 @@ public class GeoCoderDemo extends Activity implements OnGetGeoCoderResultListene
     @Override
     public void onGetReverseGeoCodeResult(ReverseGeoCodeResult result) {
         if (result == null || result.error != SearchResult.ERRORNO.NO_ERROR) {
-            Toast.makeText(GeoCoderDemo.this, "抱歉，未能找到结果", Toast.LENGTH_LONG)
-                    .show();
+            Toast.makeText(GeoCoderDemo.this, "抱歉，未能找到结果", Toast.LENGTH_LONG).show();
             return;
         }
         mBaiduMap.clear();
-        mBaiduMap.addOverlay(new MarkerOptions().position(result.getLocation())
-                .icon(BitmapDescriptorFactory
-                        .fromResource(R.drawable.icon_marka)));
-        mBaiduMap.setMapStatus(MapStatusUpdateFactory.newLatLng(result
-                .getLocation()));
-        Toast.makeText(GeoCoderDemo.this, result.getAddress(),
-                Toast.LENGTH_LONG).show();
+        mBaiduMap.addOverlay(new MarkerOptions()
+                .position(result.getLocation())
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_marka)));
+        mBaiduMap.setMapStatus(MapStatusUpdateFactory.newLatLng(result.getLocation()));
+        Toast.makeText(GeoCoderDemo.this, result.getAddress(), Toast.LENGTH_LONG).show();
+        Log.e("getAddress",result.getAddress());
+        ReverseGeoCodeResult.AddressComponent addressDetail = result.getAddressDetail();
+        Log.e("getAddress", "国家"+addressDetail.countryName+"\n省份"+addressDetail.province+"\n城市"+addressDetail.city+"\n区"+addressDetail.district);
+
 
     }
 
